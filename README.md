@@ -1,84 +1,56 @@
-# Turborepo starter
+# 🍽️ Miracooks
 
-This Turborepo starter is maintained by the Turborepo core team.
+**Miracooks** is an AI-powered food ordering platform built with a modern full-stack architecture. It enables users to browse dishes, place orders, receive intelligent recommendations, and much more — all with a delightful user experience.
 
-## Using this example
+---
 
-Run the following command:
+## 🧱 Tech Stack
 
-```sh
-npx create-turbo@latest
-```
+| Layer        | Tech                               |
+| ------------ | ---------------------------------- |
+| Frontend     | [Next.js 14+](https://nextjs.org), [TailwindCSS](https://tailwindcss.com), TypeScript |
+| Backend/API  | [NestJS](https://nestjs.com), [Node.js 18+](https://nodejs.org) |
+| Database     | [PostgreSQL](https://www.postgresql.org) |
+| AI Layer     | OpenAI (or alternatives TBD)       |
+| Auth         | (Coming Soon) NextAuth.js or Passport.js |
+| Payments     | Paystack, Bank Transfer Integration |
+| DevOps       | [Turborepo](https://turbo.build), GitHub Actions CI/CD |
+| Messaging    | Email + SMS, WhatsApp, Live Chat   |
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 📁 Monorepo Structure (Turborepo)
 
-### Apps and Packages
+miracooks/
+├── apps/
+│ ├── web/ # Next.js frontend
+│ └── api/ # NestJS backend API (coming soon)
+├── packages/ # Shared config, types, utils (TBD)
+├── .github/ # CI/CD workflows
+├── .gitignore
+├── package.json # Workspace manager
+├── turbo.json # Turborepo config
+└── README.md
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+---
 
-### Utilities
+## 🚀 Getting Started
 
-This Turborepo has some additional tools already setup for you:
+### Prerequisites
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- Node.js ≥ 18.x
+- pnpm ≥ 8.x
+- PostgreSQL (local or cloud)
 
-### Build
+### 1. Clone & Install
 
-To build all apps and packages, run the following command:
+```bash
+git clone https://github.com/yourusername/miracooks.git
+cd miracooks
+pnpm install
 
-```
-cd my-turborepo
-pnpm build
-```
+### 2. Clone & Install
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
+```bash
 pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
