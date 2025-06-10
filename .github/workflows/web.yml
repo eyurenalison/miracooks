@@ -11,9 +11,6 @@ on:
 jobs:
   web:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/web
 
     steps:
       - name: Checkout code
@@ -22,11 +19,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Install dependencies
+      - name: Install dependencies at root
         run: pnpm install
 
-      - name: Build app
-        run: pnpm build
+      - name: Build Web
+        run: pnpm --filter web build
