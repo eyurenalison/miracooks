@@ -11,9 +11,6 @@ on:
 jobs:
   api:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/api
 
     steps:
       - name: Checkout code
@@ -22,14 +19,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Install deps
+      - name: Install dependencies at root
         run: pnpm install
 
-      - name: Run build
-        run: pnpm build
+      - name: Build API
+        run: pnpm --filter api build
 
-      - name: Run tests
-        run: pnpm test
+      - name: Test API
+        run: pnpm --filter api test
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}

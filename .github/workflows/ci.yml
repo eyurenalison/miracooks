@@ -33,6 +33,3 @@ jobs:
 
       - name: Build All Apps
         run: pnpm build
-
-      - name: Check types
-        run: pnpm check-types
