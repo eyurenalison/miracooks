@@ -1,0 +1,35 @@
+name: Build & Test API
+
+on:
+  push:
+    paths:
+      - "apps/api/**"
+  pull_request:
+    paths:
+      - "apps/api/**"
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Run build
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
